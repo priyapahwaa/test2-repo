@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        font-family: 'Brush Script MT', cursive;;
+    }
+/* Reset some default styles for consistency */
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the header and navigation bar */
+header {
+  background-color: black;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav li {
+  margin-right: 15px;
+}
+
+nav a {
+  color: #e13855;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+
+#home {
+  height: 700px;
+  background-color: black;
+  padding: 20px;
+}
+
+.content {
+  color:#e13855;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  flex: 1;
+  padding: 20px;
+}
+
+.title h1 {
+  font-size: 70px;
+  font-weight: bold;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.title p {
+  font-size: 25px;
+  margin-top: 10px;
+  font-family: 'Brush Script MT', cursive;
+}
+
+.image-section {
+  flex: 1;
+  text-align: center;
+}
+
+.image-section img {
+  margin-top: 120px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+
+.about-section {
+  margin-top: 20px;
+}
+
+.about-heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-heading h2 {
+  font-size: 45px; 
+  font-family: 'Brush Script MT', cursive;
+  font-weight: bolder;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-para,
+.right-para {
+  flex: 1;
+  margin: 20px;
+}
+
+.left-para p,
+.right-para p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #e13855;
+  padding: 20px;
+  font-family: Verdana, sans-serif;;
+}
+
+#explore , #about{
+    background-color:whitesmoke;
+  padding: 70px;
+}
+
+.explore-section {
+  /* text-align: center; */
+  margin-left: 40px;
+  display: flex;
+  margin-bottom: 40px;
+}
+
+
+.text-section h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 45px;
+  color:black;
+}
+
+.image-section-left{
+    /* display: block;  */
+     padding: 10px;
+    margin-left:20px;
+    position: relative;
+  }
+  .image-section-right{
+    /* display: block; */
+    padding: 10px; 
+    margin-right: 10px;
+    /* float: right; */
+    position: relative;
+}
+
+.image-section-left img {
+  max-width: 70%;
+  /* height: auto; */
+  border-radius: 15px;
+  /* float: left; */
+  margin-left: 65px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image-section-right img{
+    max-width: 70%;
+  /* height: auto; */
+  border-radius: 15px;
+  /* float: right; */
+  /* margin-right: 50px; */
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.textsL {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 44%;
+  left: 44%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  /* text-align: center; */
+}
+.textsR {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 44%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  /* text-align: center; */
+}
+
+.image-section-left:hover img , .image-section-right:hover img{
+  opacity: 0.3;
+}
+
+.image-section-left:hover .textsL , .image-section-right:hover .textsR{
+  opacity: 1;
+}
+
+.imagetext {
+  background-color: #636866;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  border-radius: 15px;
+}
+
+.text-section p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-top: 10px;
+  color: #e13855;
+}
+
+/* Additional styles for the layout */
+.explore-section:nth-child(even) .image-section {
+  order: 1; /* Change the order of the even sections' image section */
+}
+
+.explore-section:nth-child(even) .text-section {
+  order: 2; /* Change the order of the even sections' text section */
+}
+
+.scan-section {
+  text-align: left;
+}
+
+.scan-heading {
+  margin-bottom: 20px;
+}
+
+.scan-heading h2 , .faq-heading h2{
+  font-size: 35px;
+}
+
+.scan-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.scan-button,
+.upload-button {
+    margin-top: 20px;;
+  background-color:rgb(100, 65, 65);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;                                              ;
+}
+
+.scan-button:hover,
+.upload-button:hover {
+  background-color: gray;
+}
+
+.scan-button:focus,
+.upload-button:focus {
+  outline: none;
+}
+
+#scan {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* Style for the sign-in form */
+        #form1 {
+            width: 35%;
+        }
+
+        /* Style for the scan section */
+        .scan-section {
+            width: 50%;
+        }
+    #form1 button{
+      display: block;
+        width: 72%;
+        margin: 13px auto;
+        background-color: rgb(100, 65, 65);
+        color: white;
+    }
+
+    #form1 input{
+      text-align: center;
+        display: block;
+        width: 251px;
+        margin: 4px auto;
+        border-radius: 8px;
+        padding: 5px;
+        border: 2px solid black;
+        font-size: 15px;
+        /* background-color: rgb(100, 65, 65); */
+        /* color: white; */
+    }
+
+#scan , #faq{
+    background-color:#e13855; 
+    padding: 100px;
+}
+.faq-section {
+  text-align: left;
+}
+
+.faq-heading {
+  margin-bottom: 20px;
+  margin-left: 5px;
+}
+
+
+
+.faq-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  padding: 34px;
+}
+.left-section p,
+.right-section p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+#social, #foot{
+    padding: 20px;
+    background-color: #e13855;
+}
+
+
+.social-links-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 10px;
+}
+
+.social-links img {
+  width: 40px;
+  height: 40px;
+}
+
+#foot {
+
+  text-align: center;
+  background-color: #e13855;
+  padding: 10px 0;
+  position: absolute;
+  /* bottom: 0; */
+  /* left: 0; */
+  width: 100%;
+}
+
+#foot p {
+  font-size: 14px;
+  color: #2b2929;
+}
+
+
+</style>
+<body>
+    <header>
+        <div class="logo">
+          <img src="images/logo.PNG" alt="logo" style="height: 60px; width: 60px;">
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#explore">Explore</a></li>
+            <li><a href="#scan">Login</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            
+          </ul>
+        </nav>
+    </header>
+
+
+      <main id="home">
+        <div class="content">
+          <div class="title">
+            <h1>DecorFusion</h1>
+            <p>Your one stop solution for the Home appliaces, crockery, clothing and many more.</p>
+          </div>
+          <div class="image-section">
+            <img src="images/online shop.jpg" alt="Image description">
+          </div>
+        </div>
+      </main>
+
+      <main id="about">
+        <section class="about-section">
+          <div class="about-heading">
+            <h2>About Us</h2>
+          </div>
+          <div class="about-content">
+            <div class="left-para">
+              <p>Welcome to the ultimate shopping destination for those who crave style, luxury, and exclusive items. Explore an extraordinary collection of home decor, photoframes, and much more!</p>
+            </div>
+            <div class="right-para">
+              <p>Dive into a treasure trove of unique crockery, home appliances, and stylish clothes that harmonize black and light colors to elevate your living experience and elevate your fashion sense.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <main id="explore">
+        <hr>
+        <div class="text-section">
+            <h1>Explore</h1>
+            <p>Venture through our carefully curated selection of products that cater to every taste and preference. Browse, compare, and find the must-have items that’ll make your home and wardrobe stand out like never before.</p>
+           </div>
+        <section class="explore-section">
+          <div class="image-section-left">
+            <img src="images/decore.webp" alt="Image 1">
+            <div class="textsL">
+              <div class="imagetext">Home Decore</div>
+            </div>
+          </div>
+          <div class="image-section-right">
+            <img src="images/crockery.jpg" alt="Image 2">
+            <div class="textsR">
+              <div class="imagetext">Crockery</div>
+            </div>
+          </div>
+        </section>
+        
+        <section class="explore-section">
+          <div class="image-section-left">
+            <img src="images/appliances.webp" alt="Image 3">
+            <div class="textsL">
+              <div class="imagetext">Home Appliances</div>
+            </div>
+          </div>
+          <div class="image-section-right">
+            <img src="images/clothes.jpg" alt="Image 4">
+            <div class="textsR">
+              <div class="imagetext">Clothing</div>
+            </div>
+          </div>
+        </section>
+        
+      </main>
+         
+    <main id="scan">
+      <form id="form1">
+        <h1 style="text-align: center;">LOGIN NOW</h1><br>
+        <!-- <label for="email">Email:</label> -->
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+
+        <!-- <label for="password">Password:</label> -->
+        <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+
+        <button type="submit" onclick="myFunction()">Sign In</button>
+
+        <!-- Option for New Users -->
+        <p style="text-align: center;">New user? <a href="/create-account">Create an account</a>.</p>
+    </form>
+
+    <!-- Scan Section (Shifted to the left) -->
+        <section class="scan-section">
+            <div class="scan-heading">
+                <h2 style="font-size: 35px; font-weight: bolder; color: black;">You can scan images and objects to find the similar ones. Ready to scan your way to exclusive deals?</h2>
+            </div>
+            <div class="scan-buttons">
+                <button class="scan-button">Scan Now</button>
+                <button class="upload-button">Learn more</button>
+            </div>
+        </section>
+    </main>
+
+
+      <main id="faq">
+        <section class="faq-section">
+          <div class="faq-heading">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-content">
+            <div class="left-section">
+              <!-- <h3>Question 1</h3> -->
+              <p>1. Are easy returns option available?<br>Yes, you can return your products in 10 days of delivery.<br><br>2.  Can we sell our old appliances here? <br> Yes, if they are in good condition. <br><br>3. How can we contact you for collaborations? <br> You can contact us on the on our social ids given at the end.
+
+              </p>
+            </div>
+            <div class="right-section">
+              <!-- <h3>Question 2</h3> -->
+              <p>Can’t find what you’re looking for in the FAQs? Our top-notch customer support team is here to help! Get in touch with us and we’ll get back to you in a flash. <br> Gmail:decorfusion123@gmail.com</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <main id="social">
+        <section class="social-links-section">
+          <div class="social-links">
+              <a href="https://twitter.com/" target="_blank"><img src="images/twitter.webp" alt="Twitter"></a>
+              <a href="https://www.instagram.com/" target="_blank"><img src="images/insta.webp" alt="Instagram"></a>
+            <a href="https://www.facebook.com/" target="_blank"><img src="images/facebook.webp" alt="Facebook"></a>
+          </div>
+        </section>
+    </main>
+    <main id="foot">
+        <p>All rights reserved &copy; DecorFusion</p>
+    </main>
+    
+    <script>
+      function myFunction() {
+        alert("Enter valid email and password");
+      }
+      </script>
+    
+          
+      
+</body>
+</html>
